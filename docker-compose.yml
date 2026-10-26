@@ -1,0 +1,18 @@
+services:
+  saas-web:
+    container_name: oauth-saas-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - AUTH_SERVER_URL=http://host.docker.internal:8001
+      - API_GATEWAY_URL=http://host.docker.internal:8000
+      - OAUTH_CLIENT_ID=web_app
+      - OAUTH_CLIENT_SECRET=web_app_super_secret
+      - OAUTH_REDIRECT_URI=https://app.local/callback
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
