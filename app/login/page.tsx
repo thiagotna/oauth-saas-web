@@ -12,8 +12,8 @@ import { bffApiClient } from '@/lib/services/BffApiClientService'
  */
 export default function LoginPage(): React.JSX.Element {
   const router = useRouter()
-  const [email, setEmail] = useState<string>('eng@architecture.dev')
-  const [password, setPassword] = useState<string>('StrongPass!2026')
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
   const [errorMessage, setErrorMessage] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
